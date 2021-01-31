@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="cctv">
+<img src="https://images.jdmagicbox.com/quickquotes/images_main/tayama_surveillance_cctv_camera_1080p__11932499_0.jpg">
+</div>
+<div class="container">
+    <div class="text-black text-center" style="margin-top:15%">
+        <div class="blink_me">click the button</div>
+        <a href="{% url 'hood' %}" class="button">click to Join Hood</a>
+
+        
+            <h1>Join Our Neighbourhood Today</h1>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCT2CpfjG7mrdxN-vSznk1qce6NLgaA82xdQ&usqp=CAU">
+        <h5 style="margin-top:6%">Get Started by joining a hood today</h5>
+    </div>
+
+    
+    <style>
+        .blink_me {
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .button {
+            background-color: #1c87c9;
+            -webkit-border-radius: 60px;
+            border-radius: 60px;
+            border: none;
+            color: #eeeeee;
+            cursor: pointer;
+            display: inline-block;
+            font-family: sans-serif;
+            font-size: 20px;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .cctv{
+        
+            margin-bottom: 0%;
+            margin-left: 0px;
+            width:5%;
+            height:0%;
+
+        }
+
+        @keyframes glowing {
+            0% {
+                background-color: black;
+                box-shadow: 0 0 5px #2ba805;
+            }
+
+            50% {
+                background-color: red;
+                box-shadow: 0 0 20px #49e819;
+            }
+
+            100% {
+                background-color: #0f0ceb;
+                box-shadow: 0 0 5px #2ba805;
+            }
+        }
+
+        .button {
+            animation: glowing 1300ms infinite;
+        }
+    </style>
+</div>
+{% endblock %}
