@@ -11,14 +11,21 @@ Eid Abdullahi
 User visits the app and gets redirected to the login page User logs in Directed to the home page where they see posted information If user has no account, they click on sign up User signs up User is redirected to the login page Home page loads join neigbour posted appears Homepage loads Click profile User's profile appears Homepage loads Click upload image icon User's redirected to a page where they can upload an image Homepage loads Click settings icon A modal appears where one can change their password or logout Homepage loads User inputs in the search form and presses enter Searched results show
 
 # Getting started
-Clone This Project ```git https://github.com/EidAbdullahi/neighborhood```
-Go To Project Directory ``` cd neighborhood```
-Create a Virtual Environment ```python -m venv venv```
-Activate Virtual Environment ```source virtual/bin/activate```
-Install Requirements Package ```pip install -r requirements.txt```
-Migrate Database ```python manage.py migrate```
-Create Super User   ``` python manage.py createsuperuser```
-Finally Run The Project ```python manage.py runserver```
+* Clone This Project ```git https://github.com/EidAbdullahi/neighborhood```
+
+* Go To Project Directory ``` cd neighborhood```
+
+* Create a Virtual Environment ```python -m venv venv```
+
+* Activate Virtual Environment ```source virtual/bin/activate```
+
+* Install Requirements Package ```pip install -r requirements.txt```
+
+* Migrate Database ```python manage.py migrate```
+
+* Create Super User   ``` python manage.py createsuperuser```
+
+* Finally Run The Project ```python manage.py runserver```
 
 # LICENSE AND COPY RIGHT INFO.
 MIT License
