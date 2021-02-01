@@ -12,7 +12,6 @@ User visits the app and gets redirected to the login page User logs in Directed 
 
 # Getting started
 * Clone This Project ```git https://github.com/EidAbdullahi/neighborhood```
-
 * Go To Project Directory ``` cd neighborhood```
 
 * Create a Virtual Environment ```python -m venv venv```
