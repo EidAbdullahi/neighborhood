@@ -19,7 +19,6 @@ User visits the app and gets redirected to the login page User logs in Directed 
 * Migrate Database ```python manage.py migrate```
 * Create Super User   ``` python manage.py createsuperuser```
 * Finally Run The Project ```python manage.py runserver```
-
 # LICENSE AND COPY RIGHT INFO.
 MIT License
 
