@@ -9,14 +9,13 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
 from pathlib import Path
+from decouple import config, Csv
 import os
+import django_heroku
 import dj_database_url
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +27,7 @@ SECRET_KEY = 'w47v^0@zuyyi3wnx)x8@dxa6=$(o&t#3tjp=-(0!u*d+-g@^)+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['app.herokuapp.com']
 
 
 # Application definition
@@ -51,9 +50,11 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+
 UPLOADCARE = {
-    'pub_key': '2b709bca64245dd9e55e',
-    'secret': '0a60851de5f3db2dc728',
+    'pub_key': 'd3916bfc6d747c4bdaaf',
+    'secret': '619fdf4bb76b906ca52b',
+
 }
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'hoodwatch.urls'
@@ -71,7 +73,7 @@ ROOT_URLCONF = 'hoodwatch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,19 +89,33 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hoodwatch.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# # Database
+# # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hoood',
-        'USER': 'access',
-        'PASSWORD': 'Access',
-        'HOST':'127.0.0.1',
-    }
-}
+MODE=config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+# development
+if config('MODE')=="dev":
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('DB_HOST'),
+           'PORT': '',
+       }
+       
+   }
 
+   # production
+else:
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -153,3 +169,11 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'index'
 
 LOGOUT_REDIRECT_URL = 'index'
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
