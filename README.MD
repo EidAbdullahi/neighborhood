@@ -15,7 +15,6 @@ User visits the app and gets redirected to the login page User logs in Directed 
 * Go To Project Directory ``` cd neighborhood```
 * Create a Virtual Environment ```python -m venv venv```
 * Activate Virtual Environment ```source virtual/bin/activate```
-
 * Install Requirements Package ```pip install -r requirements.txt```
 
 * Migrate Database ```python manage.py migrate```
