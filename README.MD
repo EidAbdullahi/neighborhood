@@ -21,5 +21,4 @@ User visits the app and gets redirected to the login page User logs in Directed 
 * Finally Run The Project ```python manage.py runserver```
 # LICENSE AND COPY RIGHT INFO.
 MIT License
-
-Copyright (c) 2021 Eid
+* Copyright (c) 2021 Neighborhood
