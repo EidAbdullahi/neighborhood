@@ -15,6 +15,7 @@ import os
 import django_heroku
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w47v^0@zuyyi3wnx)x8@dxa6=$(o&t#3tjp=-(0!u*d+-g@^)+'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,19 +44,17 @@ INSTALLED_APPS = [
     'crispy_forms',
     'hood.apps.HoodConfig',
     'bootstrap4',
-    
+   
 
 ]
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
 UPLOADCARE = {
     'pub_key': 'd3916bfc6d747c4bdaaf',
     'secret': '619fdf4bb76b906ca52b',
-
-}
+    }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
