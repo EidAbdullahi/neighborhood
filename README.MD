@@ -14,7 +14,6 @@ User visits the app and gets redirected to the login page User logs in Directed 
 * Clone This Project ```git https://github.com/EidAbdullahi/neighborhood```
 * Go To Project Directory ``` cd neighborhood```
 * Create a Virtual Environment ```python -m venv venv```
-
 * Activate Virtual Environment ```source virtual/bin/activate```
 
 * Install Requirements Package ```pip install -r requirements.txt```
